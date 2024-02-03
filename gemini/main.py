@@ -29,7 +29,7 @@ async def img(update,contextt):
             await send(update,IMGModel,img,id)
         os.remove(path+"/photo.png")
     except Exception as e:
-        await message.Editmessage(info.id,"error while downloading"+str(e),id)
+        await message.Editmessage(info.id,"error while downloading",id)
 async def listen(update,u,contextt):
     info=u.effective_user
     path=os.path.join("cach",str(info.id))
@@ -42,9 +42,9 @@ async def listen(update,u,contextt):
         re.save(path+"/result.mp3")
         await contextt.bot.send_document(chat_id=info.id,document=open(path+"/result.mp3","rb"))
         os.remove(path+"/result.mp3")
-        await contextt .bot.delete_message(chat_id=info.id,messege_id=id)
+        await contextt .bot.delete_message(chat_id=info.id,message_id=id)
     except Exception as e:
-        await message.Editmessage(info.id,"error while converting",id)
+        await message.Editmessage(info.id,"error while converting"+str(e),id)
 
 async def text(update,contextt):
     info=update.effective_user
