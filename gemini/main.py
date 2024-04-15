@@ -7,7 +7,7 @@ from telegram import InlineKeyboardMarkup,InlineKeyboardButton
 from telegram.ext import CommandHandler,MessageHandler,filters,ApplicationBuilder,CallbackQueryHandler
 import google.generativeai as genai
 import PIL.Image
-genai.configure(api_key="")
+genai.configure(api_key="AIzaSyA_u8y8SJNAyai76DWLDin5mWi3VPemOgY")
 IMGModel = genai.GenerativeModel('gemini-pro-vision')
 TextModel=genai.GenerativeModel('gemini-pro')
 
@@ -23,6 +23,7 @@ async def img(update,contextt):
         get=await update.message.photo[-1].get_file()
         await get.download_to_drive(path+"/photo.png")
         img=PIL.Image.open(path+"/photo.png")
+        await message.Editmessage(info.id,"generating anser for you",id)
         if update.message.caption:
             await send(update,IMGModel,[update.message.caption,img],id)
         else:
