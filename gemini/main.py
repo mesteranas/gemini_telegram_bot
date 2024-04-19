@@ -7,7 +7,7 @@ from telegram import InlineKeyboardMarkup,InlineKeyboardButton
 from telegram.ext import CommandHandler,MessageHandler,filters,ApplicationBuilder,CallbackQueryHandler
 import google.generativeai as genai
 import PIL.Image
-genai.configure(api_key="AIzaSyA_u8y8SJNAyai76DWLDin5mWi3VPemOgY")
+genai.configure(api_key="apiKey")
 IMGModel = genai.GenerativeModel('gemini-pro-vision')
 TextModel=genai.GenerativeModel('gemini-pro')
 
